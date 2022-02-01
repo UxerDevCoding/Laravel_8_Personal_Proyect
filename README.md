@@ -87,5 +87,38 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 
 Omar Hevia
 
+## Comandos
+- php artisan migrate //migrar a DB
+- php artisan make:migration courses //Crear migraciones
+- php artisan migrate:rollback //Revertir cambios de la última migración
+- php artisan make:migration create_nombre_table //forma correcta de crear la migración
+- php artisan migrate:fresh //Incluir una nueva columna en la table y actualizar la DB "OJO ES UN MÉTODO DESTRUCTIVO"
+- php artisan make:migration add_nombrecolumna_to_nombretabla_table//Añadir una columna sin borrar las tablas
+- php artisan make:model name //Creación del modelo en singular
+- php artisan tinker //Trabajar con eloquent. Para salir de tinker ingresar "exit"
+    Ejemplo:
+    <!-- >>> use App\Models\Course;
+        >>> $course=new Course;
+            => App\Models\Course {#3548}
+        >>> $course->name= 'Laravel';
+            => "Laravel"
+        >>> $course->description= 'Learning Laravel framework';
+          => "Learning Laravel framework"
+        >>> $course;
+            => App\Models\Course {#3548
+                name: "Laravel",
+                description: "Learning Laravel framework",
+            }
+        >>> $course->save();
+            => true
+            >>> $course
+            => App\Models\Course {#3548
+                name: "Laravel",
+                description: "Learning Laravel framework",
+                updated_at: "2022-02-01 19:33:42",
+                created_at: "2022-02-01 19:33:42",
+                id: 1,
+            }
+ -->
 
 
