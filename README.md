@@ -97,7 +97,7 @@ Omar Hevia
 - php artisan make:model name //Creación del modelo en singular
 - php artisan tinker //Trabajar con eloquent. Para salir de tinker ingresar "exit"
     Ejemplo:
-    <!-- >>> use App\Models\Course;
+     >>> use App\Models\Course;
         >>> $course=new Course;
             => App\Models\Course {#3548}
         >>> $course->name= 'Laravel';
@@ -119,6 +119,26 @@ Omar Hevia
                 created_at: "2022-02-01 19:33:42",
                 id: 1,
             }
- -->
 
+php artisan migrate:reset //eliminar todas las tablas
+php artisan make:factory CourseFactory --model //Crear Factory a partir del controlador
+php artisan make:seeder CourseSeeder //Crear un archivo seeder
+php artisan migrate:fresh --seed //Actualizar tabla y añadir seed
 
+Ejemplo: Mirar la DB
+>>> use App\Models\Course
+>>> $course= Course::all(); //todos los datos
+>>> $course=Course::where('category','Front-End')->get(); //Obtener una categoria concreta
+>>> $course=Course::where('category','Front-End')->orderBy('id', 'desc')->get(); //Obtener una categoria concreta de forma descendente
+>>> $course=Course::where('category','Front-End')->orderBy('name', 'asc')->get(); //Obtener una categoria concreta de forma ascendente
+>>> $course=Course::where('category','Front-End')->orderBy('name', 'asc')->first(); //Obtener primer elemento
+>>> $course=Course::select('name', 'description')->get(); // para obtener las columnas específicas
+>>> $course=Course::select('name', 'description')->orderBy('name', 'asc')->get(); // obtener datos específicos ordenados
+>>> $course=Course::select('name', 'description', 'category')->orderBy('name', 'asc')->where('category', 'Front-End')->get(); // obtener datos específicos ordenados en category
+>>> $course=Course::select('name as title', 'description', 'category')->orderBy('name', 'asc')->where('category', 'Front-End')->get(); // obtener datos específicos ordenados en category y cambiando el nombre de name
+>>> $course=Course::select('name as title', 'description', 'category')->where('category', 'Front-End')->take(5)->get(); // obtener una cantidad concreta datos(5) específicos  y cambiando el nombre de name
+>>>$course= Course::where('name', 'Officiis distinctio velit odit aperiam incidunt.')->get(); //Acceder a dato concreto (a una colección que es un array de objetos)
+>>>$course= Course::where('name', 'Officiis distinctio velit odit aperiam incidunt.')->first(); //Acceder a dato concreto dentro del array de objetos
+>>>$course= Course::find(5); //Acceder al array de objetos con el id
+>>>$course->description //Obtener una columna concreta
+>>>$course=Course::where('id', '<=', 45)->get(); //Obtener entre un rango de id
