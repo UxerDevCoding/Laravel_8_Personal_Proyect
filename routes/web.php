@@ -14,7 +14,7 @@ use App\Http\Controllers\CursoController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/', HomeController::class);
+Route::get('/', [HomeController::class, 'index']);
 Route::get('courses', [CursoController::class, 'index'])->name('courses.index');
 Route::get('courses/create', [CursoController::class, 'create'])->name('courses.create');;
 Route::post('courses/create', [CursoController::class, 'store'])->name('courses.store');;

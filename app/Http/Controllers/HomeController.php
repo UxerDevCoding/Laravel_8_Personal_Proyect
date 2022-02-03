@@ -3,11 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Course;
 
 class HomeController extends Controller
 {
-    public function __invoke()
+    public function index()
     {
-         return view('welcome'); 
+        $course = Course::orderBy('id', 'desc')->paginate();
+        return view('cursos.index', ['course'=> $course]);
     }
 }

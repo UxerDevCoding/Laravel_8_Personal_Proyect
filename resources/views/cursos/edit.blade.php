@@ -4,7 +4,7 @@
     
 @section('content')
 
-    <h1>Página principal para editar cursos</h1>
+    <h1 class="d-flex justify-content-center mt-5">>Página principal para editar cursos</h1>
     <form action="{{route('courses.update', $course)}}" method="post">
 
         @csrf
