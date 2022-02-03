@@ -15,6 +15,9 @@ use App\Http\Controllers\CursoController;
 |
 */
 Route::get('/', HomeController::class);
-Route::get('cursos', [CursoController::class, 'index']);
-Route::get('cursos/create', [CursoController::class, 'create']);
-Route::get('cursos/{curso}', [CursoController::class, 'show']);
+Route::get('courses', [CursoController::class, 'index'])->name('courses.index');
+Route::get('courses/create', [CursoController::class, 'create'])->name('courses.create');;
+Route::post('courses/create', [CursoController::class, 'store'])->name('courses.store');;
+Route::get('courses/{id}', [CursoController::class, 'show'])->name('courses.show');;
+Route::get('courses/{id}/edit', [CursoController::class, 'edit'])->name('courses.edit');;
+Route::put('courses/{id}', [CursoController::class, 'update'])->name('courses.update');;
