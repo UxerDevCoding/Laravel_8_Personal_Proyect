@@ -14,10 +14,9 @@
                  
                     <div class="card text-center shadow">
                         <div class="card-body">
-                            <h5 class="card-title text-primary lead">{{$item->name}}</h5>
+                            <a href="{{route('courses.show', $item->id)}} ">{{$item->name}}</a>
                             <h5 class="lead text-secondary">{{$item->category}}</h5>
                             <p class="lead text-secondary">{{$item->description}}</p>
-
                         </div>
                     </div> 
                
